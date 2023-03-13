@@ -1,0 +1,78 @@
+<ng-container *ngIf="User$|async as user">
+    <div class="row ">
+        <div class="col-3 border p-3">
+            <div class="w-100 row mx-auto mb-3 ">
+                <img class="col-12 border"
+                    src="https://static.vecteezy.com/system/resources/previews/000/439/863/non_2x/vector-users-icon.jpg">
+            </div>
+            <div class="my-2">
+                <div>UserName</div>
+                <small>{{user.userName}}</small>
+            </div>
+            <div class="my-2">
+                <div>Location</div>
+                <small>egypt</small>
+            </div>
+            <div class="my-2">
+                <div>Last Active</div>
+                <small>5 min age</small>
+            </div>
+            <div class="my-2">
+                <div>Member since</div>
+                <small>5 min age</small>
+            </div>
+            <div class="row">
+                <button class="col-6  p-2 text-center" mat-button color="primary">Like</button>
+                <button class=" col-6 p-2 text-center" mat-button color="Basic">message</button>
+            </div>
+
+
+
+        </div>
+        <div class="col-8 ms-5 ">
+            <mat-tab-group>
+                <mat-tab label="Description" class="p-3">
+                    <div class="pt-3">
+                        <h4>
+                            Description:
+                        </h4>
+                        {{user.introduction}}
+                        <h4>
+                            Looking For:
+                        </h4>
+                        {{user.lookingFor}}
+                    </div>
+                </mat-tab>
+                <mat-tab label="Intersts">
+                    <div class="pt-3">
+                        <h4>Intersts</h4>
+                        {{user.intersts}}
+                    </div>
+
+                </mat-tab>
+                <mat-tab label="Photos">
+                    <div class="pt-3">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Earum quae eum corrupti, iste veniam
+                        rem
+                        qui
+                        quidem alias quaerat. Recusandae incidunt fuga tempora minima quod facilis vero aliquid. Earum,
+                        commodi?
+                    </div>
+
+                </mat-tab>
+                <mat-tab label="Messages">
+                    <div class="pt-3">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Earum quae eum corrupti, iste veniam
+                        rem
+                        qui
+                        quidem alias quaerat. Recusandae incidunt fuga tempora minima quod facilis vero aliquid. Earum,
+                        commodi?
+                    </div>
+
+                </mat-tab>
+            </mat-tab-group>
+
+        </div>
+    </div>
+
+</ng-container>

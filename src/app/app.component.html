@@ -1,8 +1,7 @@
-<div *ngFor="let user of users$|async">
+<div style="background-color:rgb(211, 211, 211);">
+  <app-nav></app-nav>
+</div>
+<div class="container pt-5">
 
-  <h2>
-
-    {{user.userName}}
-  </h2>
-
+  <router-outlet></router-outlet>
 </div>

@@ -1,0 +1,20 @@
+<div>
+    <mat-card class="card m-1">
+        <mat-card-content class="text-center d-flex justify-content-center
+        "><mat-icon aria-hidden="false" aria-label="Example home icon"
+                fontIcon="person"></mat-icon>{{member.userName}}</mat-card-content>
+        <img class="imageZoomEffect" mat-card-image
+            src="https://static.vecteezy.com/system/resources/previews/000/439/863/non_2x/vector-users-icon.jpg">
+        <ul class="userDitailBtn">
+            <a [routerLink]='["/Members",member.memberId]'>
+                <li class="rounded "><mat-icon aria-hidden="false" aria-label="Example home icon"
+                        fontIcon="account_circle"></mat-icon></li>
+            </a>
+            <li class="rounded "><mat-icon aria-hidden="false" aria-label="Example home icon"
+                    fontIcon="favorite "></mat-icon></li>
+            <li class="rounded "><mat-icon aria-hidden="false" aria-label="Example home icon"
+                    fontIcon="chat"></mat-icon>
+            </li>
+        </ul>
+    </mat-card>
+</div>

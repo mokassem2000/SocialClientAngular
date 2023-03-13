@@ -1,0 +1,46 @@
+<div class="container ">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary ">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">SocialApp</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" routerLink="/" [routerLinkActiveOptions]="{exact:true}"
+                            routerLinkActive="active">Matches</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " aria-current="page" routerLinkActive="active"
+                            routerLink="/Members">Lists</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLinkActive="active" routerLink="/">Messages</a>
+                    </li>
+
+                </ul>
+                <ng-container *ngIf="Auth$|async as authModel">
+                    <button color="primary" mat-button [matMenuTriggerFor]="menu">hi,{{authModel.name}}</button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item>Profile</button>
+                        <button mat-menu-item (click)="logout()">Log out</button>
+                    </mat-menu>
+
+                </ng-container>
+
+                <form *ngIf="!(Auth$|async)" #LoginForm='ngForm' class="d-flex" role="search" (ngSubmit)="login()">
+                    <input class="form-control me-2" type="email" placeholder="Email" aria-label="email" name="Email"
+                        [(ngModel)]="LoginData.Email">
+                    <input class="form-control me-2" type="password" placeholder="password" aria-label="password"
+                        name="Password" [(ngModel)]="LoginData.Password">
+                    <button mat-button class="btn me-2" color="primary" type="submit">Login</button>
+                    <a routerLink="signUp"><button mat-flat-button color="primary" class="btn">signUp</button></a>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+</div>
