@@ -15,6 +15,14 @@ import { MemberListComponent } from './Member/member-list/member-list.component'
 import { MemberCardComponent } from './Member/member-card/member-card.component';
 import { JwtInterceptor } from './_Interceptor/jwt.interceptor';
 import { MemberDitailComponent } from './Member/member-ditail/member-ditail.component';
+import { MemberEditeComponent } from './Member/member-edite/member-edite.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { LoadingInterceptor } from './_Interceptor/loading.interceptor';
+import { NgxUploaderModule } from 'ngx-uploader';
+import { UploaderModule } from 'angular-uploader';
+
+import { NgxFileDropModule } from 'ngx-file-drop';
+import { PhotoUploadeComponent } from './photo-uploade/photo-uploade.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +33,8 @@ import { MemberDitailComponent } from './Member/member-ditail/member-ditail.comp
     MemberListComponent,
     MemberCardComponent,
     MemberDitailComponent,
+    MemberEditeComponent,
+    PhotoUploadeComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,9 +46,13 @@ import { MemberDitailComponent } from './Member/member-ditail/member-ditail.comp
     ReactiveFormsModule,
     ReactiveFormsModule,
     RouterModule,
+    UploaderModule,
+    NgxSpinnerModule.forRoot({ type: 'line-scale-party' }),
+    NgxFileDropModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
 })

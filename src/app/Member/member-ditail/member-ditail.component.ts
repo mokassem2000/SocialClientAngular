@@ -12,11 +12,11 @@ import { MemberService } from 'src/app/_services/member.service';
 })
 export class MemberDitailComponent implements OnInit {
   User$: Observable<IMember>;
+
   constructor(private route: ActivatedRoute, private member: MemberService) {}
   ngOnInit(): void {
     this.LoadUserDitail();
   }
-
   LoadUserDitail() {
     let id: string;
     this.route.params.subscribe((p) => (id = p['id']));

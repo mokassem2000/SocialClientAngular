@@ -1,0 +1,38 @@
+<div class="center">
+    <div class="d-flex mb-5">
+        <ng-container *ngIf="member">
+            <div *ngFor="let photo of member.photos" class="w-25 me-2">
+                <img [src]="photo.url " class="w-100  border border-3">
+                <div class="d-flex justify-content-between">
+                    <button class="btn btn-primary" (click)="makeMain(photo.id)">main</button>
+                    <button class="btn btn-danger" (click)="DeletePhoto(photo.id)">delete</button>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+
+    <ngx-file-drop dropZoneLabel="Drop files here" (onFileDrop)="dropped($event)" (onFileOver)="fileOver($event)"
+        (onFileLeave)="fileLeave($event)">
+        <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+            Optional custom content that replaces the the entire default content.
+            <button class="btn " mat-raised-button color="primary" (click)="openFileSelector()">
+                Browse Files
+            </button>
+        </ng-template>
+    </ngx-file-drop>
+    <div class="upload-table">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="p-">Name</th>
+                </tr>
+            </thead>
+            <tbody class="upload-name-style">
+                <tr *ngFor="let item of files; let i=index">
+                    <td> <strong>{{ item.relativePath }}</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="alert alert-success" *ngIf="photoMessage">{{photoMessage}}</div>
+</div>

@@ -1,0 +1,77 @@
+<div *ngIf="Memberp" class="pb-5">
+    <div class="row">
+        <div class="col-3 border p-3">
+            <div class="w-100 row mx-auto mb-3 ">
+                <img class="col-12 border" [src]="mainPhoto?.url">
+            </div>
+            <div class="my-2">
+                <div>UserName</div>
+                <small>{{ Memberp.userName}}</small>
+            </div>
+            <div class="my-2">
+                <div>Location</div>
+                <small>egypt</small>
+            </div>
+            <div class="my-2">
+                <div>Last Active</div>
+                <small>5 min age</small>
+            </div>
+            <div class="my-2">
+                <div>Member since</div>
+                <small>5 min age</small>
+            </div>
+            <div class="row">
+                <button form="UpdateMemberFormId" type="submit" class="col-12  p-2 text-center" mat-button
+                    color="primary" [disabled]="!UpdateMemberForm1.dirty">save changes</button>
+            </div>
+
+
+
+        </div>
+        <div class="col-8 ms-5 ">
+            <div *ngIf="UpdateMemberForm1.dirty" class="alert alert-warning" role="alert">
+                information: you have made change. any unsaved chandes will be lost
+            </div>
+            <mat-tab-group>
+                <mat-tab label="Description" class="p-3">
+                    <form #UpdateMemberForm1="ngForm" id="UpdateMemberFormId" (ngSubmit)="updateOnsubmit()">
+                        <div class="pt-3">
+                            <h4>Description:</h4>
+                            <textarea name="introduction" class="form-control" [(ngModel)]="Memberp.introduction"
+                                rows="6"></textarea>
+                        </div>
+                        <div class="pt-3  mt-3">
+                            <h4>Looking for</h4>
+                            <textarea name="lookingFor" class="form-control" [(ngModel)]="Memberp.lookingFor"
+                                rows="6"> </textarea>
+                        </div>
+                        <div class="pt-3  mt-3">
+                            <h4>Intersts</h4>
+                            <textarea name="intersts" class="form-control" [(ngModel)]="Memberp.intersts"
+                                rows="6"></textarea>
+                        </div>
+                        <div class="d-flex  mt-3">
+                            <div class="me-5">
+                                <label class="mb-1">city</label>
+                                <input class="form-control " type="text" name="city" [(ngModel)]="Memberp.city">
+                            </div>
+                            <div>
+                                <label class="mb-1">country</label>
+                                <input class="form-control" type="text" name="country" [(ngModel)]="Memberp.country">
+                            </div>
+                        </div>
+
+                    </form>
+
+                </mat-tab>
+
+                <mat-tab label="update photos" class="p-3 mbt-3">
+                    <div class="mt-5">
+                        <app-photo-uploade [member]=" Memberp"></app-photo-uploade>
+                    </div>
+                </mat-tab>
+            </mat-tab-group>
+
+        </div>
+    </div>
+</div>

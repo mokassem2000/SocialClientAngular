@@ -25,7 +25,7 @@
                 <ng-container *ngIf="Auth$|async as authModel">
                     <button color="primary" mat-button [matMenuTriggerFor]="menu">hi,{{authModel.name}}</button>
                     <mat-menu #menu="matMenu">
-                        <button mat-menu-item>Profile</button>
+                        <a routerLink="/Member/edite"><button mat-menu-item>Profile</button></a>
                         <button mat-menu-item (click)="logout()">Log out</button>
                     </mat-menu>
 
@@ -37,7 +37,6 @@
                     <input class="form-control me-2" type="password" placeholder="password" aria-label="password"
                         name="Password" [(ngModel)]="LoginData.Password">
                     <button mat-button class="btn me-2" color="primary" type="submit">Login</button>
-                    <a routerLink="signUp"><button mat-flat-button color="primary" class="btn">signUp</button></a>
                 </form>
             </div>
         </div>
