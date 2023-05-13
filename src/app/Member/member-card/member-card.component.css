@@ -1,10 +1,10 @@
-
+/* 
 .imageZoomEffect:hover{
     transform: scale(1.2,1.2);
     overflow: hidden;
     transition-duration: 500ms;
     transition-timing-function: ease-out;
-}
+} */
 .card{
     position: relative;
 }

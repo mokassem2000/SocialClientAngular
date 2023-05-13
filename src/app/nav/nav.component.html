@@ -10,8 +10,8 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" routerLink="/" [routerLinkActiveOptions]="{exact:true}"
-                            routerLinkActive="active">Matches</a>
+                        <a class="nav-link" aria-current="page" routerLink="Likes"
+                            [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active">Likes</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link " aria-current="page" routerLinkActive="active"
@@ -23,7 +23,18 @@
 
                 </ul>
                 <ng-container *ngIf="Auth$|async as authModel">
-                    <button color="primary" mat-button [matMenuTriggerFor]="menu">hi,{{authModel.name}}</button>
+                    <button color="primary" mat-button [matMenuTriggerFor]="menu">
+                        <ng-container *ngIf="authModel.photoUrl else elseBlock">
+
+
+                            <img style="width: 40px;" class="border  border-dark" [src]="authModel.photoUrl ">
+                        </ng-container>
+                        <ng-template #elseBlock>
+                            <img style="width: 50px;"
+                                src="https://img.freepik.com/free-photo/beautiful-sunflower-outdoors-still-life_23-2150152821.jpg?w=996&t=st=1683654936~exp=1683655536~hmac=ec85402a3af2b73a1a5f840a31d317dfb17803ea235f460c748c7443f72a069d ">
+                        </ng-template>
+                        hi,{{authModel.name}}
+                    </button>
                     <mat-menu #menu="matMenu">
                         <a routerLink="/Member/edite"><button mat-menu-item>Profile</button></a>
                         <button mat-menu-item (click)="logout()">Log out</button>

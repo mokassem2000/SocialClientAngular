@@ -9,6 +9,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { FloatLabelType } from '@angular/material/form-field';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
+import { MatPaginatorModule } from '@angular/material/paginator';
 @NgModule({
   declarations: [],
   exports: [
@@ -20,6 +21,7 @@ import { MatCardModule } from '@angular/material/card';
     MatToolbarModule,
     MatCardModule,
     MatTabsModule,
+    MatPaginatorModule,
   ],
   providers: [],
 })

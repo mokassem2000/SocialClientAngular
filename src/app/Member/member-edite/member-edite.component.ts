@@ -49,10 +49,12 @@ export class MemberEditeComponent implements OnInit {
       City: this.Memberp.city,
       Country: this.Memberp.country,
       LookingFor: this.Memberp.lookingFor,
+      id: this.Memberp.memberId,
     };
+
     this.Member.Updatemember(memberDto, this.Memberp.memberId).subscribe(
       (m) => {
-        this.editeform.reset(this.Memberp);
+        this.editeform.reset(m);
       }
     );
   }

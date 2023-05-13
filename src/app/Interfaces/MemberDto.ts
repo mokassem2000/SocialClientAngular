@@ -4,4 +4,5 @@ export interface UpdateMemberDto {
   Intersts: string;
   City: string;
   Country: string;
+  id: string;
 }

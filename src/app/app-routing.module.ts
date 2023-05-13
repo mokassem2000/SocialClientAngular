@@ -6,6 +6,7 @@ import { MemberEditeComponent } from './Member/member-edite/member-edite.compone
 import { MemberListComponent } from './Member/member-list/member-list.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { UnsavedChangesGuard } from './_guards/unsaved-changes.guard';
+import { ListsComponent } from './Member/lists/lists.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
     component: MemberEditeComponent,
     canDeactivate: [UnsavedChangesGuard],
   },
+  { path: 'Likes', component: ListsComponent },
 ];
 
 @NgModule({

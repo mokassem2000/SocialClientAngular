@@ -1,7 +1,11 @@
 <div class="row">
-    <div *ngFor="let member of members$|async as members" class=" col-12 col-lg-4  col-sm-6 col-xl-3">
 
+    <div *ngFor="let member of members " class=" col-12 col-lg-4  col-sm-6 col-xl-3">
         <app-member-card [member]="member"></app-member-card>
+
     </div>
+    <mat-paginator [length]="pagination.totalItem" [pageSize]="pagination.pageSize" (page)="updatePagenation($event)"
+        [pageSizeOptions]="[1,2,3,5]" aria-label="Select page">
+    </mat-paginator>
 
 </div>

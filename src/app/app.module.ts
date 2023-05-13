@@ -23,6 +23,7 @@ import { UploaderModule } from 'angular-uploader';
 
 import { NgxFileDropModule } from 'ngx-file-drop';
 import { PhotoUploadeComponent } from './photo-uploade/photo-uploade.component';
+import { ListsComponent } from './Member/lists/lists.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { PhotoUploadeComponent } from './photo-uploade/photo-uploade.component';
     MemberDitailComponent,
     MemberEditeComponent,
     PhotoUploadeComponent,
+    ListsComponent,
   ],
   imports: [
     BrowserModule,

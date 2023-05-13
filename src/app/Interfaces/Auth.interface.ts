@@ -4,5 +4,6 @@ export interface IAuth {
   isAuthenticated: boolean;
   name: string;
   token: string;
+  photoUrl: string;
   expiresOn: Date;
 }

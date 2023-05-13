@@ -1,0 +1,39 @@
+<div>
+    <div>
+        <h1>
+            {{ pridicate=="liked"?"members i liked":"member who liked me"}}
+        </h1>
+    </div>
+    <div>
+        <div class="btn-group" role="group" aria-label="Basic outlined example">
+            <div>
+                <button class="me-2" mat-raised-button color="primary" [(ngModel)]="pridicate"
+                    (click)="loadMemberLikes('liked')">
+                    member i like
+                </button>
+                <button mat-raised-button color="warn" [(ngModel)]="pridicate" (click)="loadMemberLikes('likedBy')">
+                    member who like me
+                </button>
+            </div>
+        </div>
+        <div class="cardParent">
+            <div *ngFor="let member of members">
+                <div>
+                    <div>
+                        <a [routerLink]='["/Members",member.memberId]'>
+                            <mat-card class="card m-1">
+                                <mat-card-content class="text-center d-flex justify-content-center
+                            "><mat-icon aria-hidden="false" aria-label="Example home icon"
+                                        fontIcon="person"></mat-icon>{{member.userName}}</mat-card-content>
+                                <img class="imageZoomEffect w-100" mat-card-image
+                                    [src]="member.photoUrl==null?'https://www.pngall.com/wp-content/uploads/5/User-Profile-PNG.png':member.photoUrl">
+                            </mat-card>
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

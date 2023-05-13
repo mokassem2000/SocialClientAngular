@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable, observable } from 'rxjs';
+import { Observable, map, observable, tap } from 'rxjs';
 import { IMember } from 'src/app/Interfaces/IMember.interface';
 import { IUser } from 'src/app/_entites/iuser';
 import { MemberService } from 'src/app/_services/member.service';
@@ -12,6 +12,7 @@ import { MemberService } from 'src/app/_services/member.service';
 })
 export class MemberDitailComponent implements OnInit {
   User$: Observable<IMember>;
+  mainPhoto: string;
 
   constructor(private route: ActivatedRoute, private member: MemberService) {}
   ngOnInit(): void {

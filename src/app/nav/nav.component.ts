@@ -16,6 +16,9 @@ export class NavComponent implements OnInit {
   constructor(private accountService: AccountService) {}
   ngOnInit(): void {
     this.getCurrenAuth();
+    this.Auth$.subscribe((a) => {
+      console.log(a);
+    });
   }
 
   login() {
