@@ -16,7 +16,6 @@ import { AccountService } from '../_services/account.service';
   styleUrls: ['./sign-up.component.css'],
 })
 export class SignUpComponent implements OnInit {
-  SignupData = { name: '', username: '', email: '', password: '' };
   hide = true;
   signUpForm: FormGroup;
 
@@ -25,7 +24,6 @@ export class SignUpComponent implements OnInit {
   ): ValidationErrors | null => {
     let pass1 = control.get('Password').value;
     let pass2 = control.get('ConfirmPassword').value;
-    console.log(`${pass1} === ${pass2}= ${pass1 === pass2}`);
     if (pass1 === pass2) {
       return null;
     } else {
@@ -51,12 +49,13 @@ export class SignUpComponent implements OnInit {
   }
 
   PostingData() {
-    this.account.signUP(this.SignupData);
+    return this.account.signUP(this.signUpForm.value);
   }
 
   onSubmit() {
-    console.log(this.signUpForm);
-    // this.signUpForm.reset();
-    this.PostingData();
+    console.log(this.signUpForm.value);
+    this.PostingData().subscribe((x) => {
+      console.log(x);
+    });
   }
 }

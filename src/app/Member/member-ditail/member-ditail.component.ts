@@ -21,7 +21,8 @@ export class MemberDitailComponent implements OnInit {
   LoadUserDitail() {
     let id: string;
     this.route.params.subscribe((p) => (id = p['id']));
-    console.log(id);
-    this.User$ = this.member.getmember(id);
+    this.User$ = this.member
+      .getmember(id)
+      .pipe(tap((u) => (this.mainPhoto = u.photos.find((p) => p.isMain).url)));
   }
 }

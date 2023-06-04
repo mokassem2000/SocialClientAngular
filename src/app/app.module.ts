@@ -18,12 +18,12 @@ import { MemberDitailComponent } from './Member/member-ditail/member-ditail.comp
 import { MemberEditeComponent } from './Member/member-edite/member-edite.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { LoadingInterceptor } from './_Interceptor/loading.interceptor';
-import { NgxUploaderModule } from 'ngx-uploader';
 import { UploaderModule } from 'angular-uploader';
-
 import { NgxFileDropModule } from 'ngx-file-drop';
 import { PhotoUploadeComponent } from './photo-uploade/photo-uploade.component';
 import { ListsComponent } from './Member/lists/lists.component';
+import { MessagesComponent } from './messages/messages.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 @NgModule({
   declarations: [
@@ -37,6 +37,7 @@ import { ListsComponent } from './Member/lists/lists.component';
     MemberEditeComponent,
     PhotoUploadeComponent,
     ListsComponent,
+    MessagesComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,6 +53,7 @@ import { ListsComponent } from './Member/lists/lists.component';
     NgxSpinnerModule.forRoot({ type: 'line-scale-party' }),
     NgxFileDropModule,
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },

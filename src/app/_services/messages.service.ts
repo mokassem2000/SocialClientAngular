@@ -6,11 +6,11 @@ import { Imessage } from '../Interfaces/messsage';
   providedIn: 'root',
 })
 export class MessagesService {
-  url = 'https://localhost:7068/createMessage';
+  url = 'https://localhost:7068';
   constructor(private http: HttpClient) {}
 
-  sendMessage(PageNumber: number, PageSize: number, Container: string) {
-    return this.http.post<Imessage>(this.url, {
+  sendMessage() {
+    return this.http.post<Imessage>(this.url + '/createMessage', {
       recipientUserId: 2,
       content: 'tryng to send message ',
     });
