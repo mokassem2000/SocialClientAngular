@@ -10,6 +10,7 @@ import { FloatLabelType } from '@angular/material/form-field';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 @NgModule({
   declarations: [],
   exports: [
@@ -22,6 +23,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatCardModule,
     MatTabsModule,
     MatPaginatorModule,
+    MatButtonToggleModule,
   ],
   providers: [],
 })

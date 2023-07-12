@@ -36,6 +36,7 @@ export class MemberService {
     );
   }
   getmember(id: string) {
+    let headers = new HttpHeaders({ Accept: 'application/json' });
     return this.http
       .get<IMember>(this.Baseurl + '/Users/' + id)
       .pipe(shareReplay(1));

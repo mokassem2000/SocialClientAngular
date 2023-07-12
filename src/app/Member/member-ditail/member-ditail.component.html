@@ -22,14 +22,15 @@
             </div>
             <div class="row">
                 <button class="col-6  p-2 text-center" mat-button color="primary">Like</button>
-                <button class=" col-6 p-2 text-center" mat-button color="Basic" routerLink="/messages">message</button>
+                <button class=" col-6 p-2 text-center" (click)="selectMessageTab()" mat-button color="Basic"
+                    routerLink="/messages">message</button>
             </div>
 
 
 
         </div>
         <div class="col-8 ms-5 ">
-            <mat-tab-group>
+            <mat-tab-group #tabsParent (selectedTabChange)="onTabActivated($event)">
                 <mat-tab label="Description" class="p-3">
                     <div class="pt-3">
                         <h4>
@@ -49,11 +50,10 @@
                     </div>
 
                 </mat-tab>
-                <mat-tab label="Photos">
-
-                </mat-tab>
                 <mat-tab label="Messages">
-
+                    <div>
+                        <app-member-message [messages]="messages"> </app-member-message>
+                    </div>
                 </mat-tab>
             </mat-tab-group>
 

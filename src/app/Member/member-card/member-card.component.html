@@ -1,5 +1,5 @@
 <div>
-    <mat-card class="card m-1">
+    <mat-card class="card m-1 " style="background-color: #673ab7; color: white;">
         <mat-card-content class="text-center d-flex justify-content-center
         "><mat-icon aria-hidden="false" aria-label="Example home icon"
                 fontIcon="person"></mat-icon>{{member.userName}}</mat-card-content>
@@ -11,9 +11,12 @@
             </a>
             <li class="rounded" [classList]="{danger:isliked}" (click)="addLike(member.memberId)"><mat-icon
                     aria-hidden="false" aria-label="Example home icon" fontIcon="favorite "></mat-icon></li>
-            <li class="rounded "><mat-icon aria-hidden="false" aria-label="Example home icon"
-                    fontIcon="chat"></mat-icon>
-            </li>
+            <a [routerLink]='["/messages",member.memberId]'>
+                <li class="rounded "><mat-icon aria-hidden="false" aria-label="Example home icon"
+                        fontIcon="chat"></mat-icon>
+                </li>
+            </a>
+
         </ul>
     </mat-card>
 </div>

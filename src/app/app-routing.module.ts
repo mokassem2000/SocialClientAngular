@@ -21,7 +21,7 @@ const routes: Routes = [
     canDeactivate: [UnsavedChangesGuard],
   },
   { path: 'Likes', component: ListsComponent },
-  { path: 'messages', component: MessagesComponent },
+  { path: 'messages/:id', component: MessagesComponent },
 ];
 
 @NgModule({

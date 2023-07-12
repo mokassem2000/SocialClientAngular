@@ -24,6 +24,8 @@ import { PhotoUploadeComponent } from './photo-uploade/photo-uploade.component';
 import { ListsComponent } from './Member/lists/lists.component';
 import { MessagesComponent } from './messages/messages.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { DateAgoPipe } from './pipes/date-ago.pipe';
+import { MemberMessageComponent } from './member-message/member-message.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,8 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
     PhotoUploadeComponent,
     ListsComponent,
     MessagesComponent,
+    DateAgoPipe,
+    MemberMessageComponent,
   ],
   imports: [
     BrowserModule,
