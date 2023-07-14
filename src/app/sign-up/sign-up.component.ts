@@ -56,6 +56,7 @@ export class SignUpComponent implements OnInit {
     console.log(this.signUpForm.value);
     this.PostingData().subscribe((x) => {
       console.log(x);
+      this.signUpForm.reset();
     });
   }
 }

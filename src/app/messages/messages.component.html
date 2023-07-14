@@ -5,10 +5,10 @@
         color="primary" name="container">
         <mat-button-toggle value="unread" (click)="loadMesssage()"> <i class="fa fa-envelope"></i>
             unread <mat-icon aria-hidden="false" fontIcon="unread"></mat-icon></mat-button-toggle>
-        <mat-button-toggle value="inbox" (click)="loadMesssage()"> <i class="fa fa-envelope-open"></i>
-            inbox <mat-icon aria-hidden="false" fontIcon="inbox"></mat-icon></mat-button-toggle>
-        <mat-button-toggle value="Outbox" (click)="loadMesssage()"> <i class="fa fa-envelope-plane"></i>
-            outbox <mat-icon aria-hidden="false" fontIcon="outbox"></mat-icon>
+        <mat-button-toggle value="Outbox" (click)="loadMesssage()"> <i class="fa fa-envelope-open"></i>
+            Outbox <mat-icon aria-hidden="false" fontIcon="box"></mat-icon></mat-button-toggle>
+        <mat-button-toggle value="inbox" (click)="loadMesssage()"> <i class="fa fa-envelope-plane"></i>
+            inbox <mat-icon aria-hidden="false" fontIcon="outbox"></mat-icon>
         </mat-button-toggle>
     </mat-button-toggle-group>
 </div>
@@ -31,12 +31,17 @@
                 <tr *ngFor="let message of messages">
                     <td>{{message.content}}</td>
                     <td>
-                        <div *ngIf="container ==='inbox'">
-                            <img class="img-circle rounded-circle me-2"
-                                src="{{message.recipientPhotoUrl || './assets/user.png'}}">
-                            <strong>{{message.recipientUsername}}</strong>
-                        </div>
                         <div *ngIf="container ==='Outbox'">
+                            <img class="img-circle rounded-circle me-2" style="width:20px"
+                                src="{{message.senderPhotoUrl || './assets/user.png'}}">
+                            <strong>{{message.senderUsername}}</strong>
+                        </div>
+                        <div *ngIf="container ==='inbox'">
+                            <img src="{{message.senderPhotoUrl || './assets/user.png'}}" style="width:20px"
+                                class="img-circle rounded-circle me-2" src="">
+                            <strong>{{message.senderUsername}}</strong>
+                        </div>
+                        <div *ngIf="container ==='unread'">
                             <img src="{{message.senderPhotoUrl || './assets/user.png'}}" style="width:20px"
                                 class="img-circle rounded-circle me-2" src="">
                             <strong>{{message.senderUsername}}</strong>

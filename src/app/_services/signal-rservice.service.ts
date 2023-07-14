@@ -1,8 +1,16 @@
 import { Injectable } from '@angular/core';
-import { HubConnection, HubConnectionBuilder } from '@microsoft/signalr';
+import {
+  HubConnection,
+  HubConnectionBuilder,
+  IHttpConnectionOptions,
+} from '@microsoft/signalr';
 import { Imessage } from '../Interfaces/messsage';
 import { IRealmessage } from '../Interfaces/IrealMessage';
-
+const connectionOptions: IHttpConnectionOptions = {
+  accessTokenFactory: () => {
+    return JSON.parse(localStorage.getItem('auth'))['token'];
+  },
+};
 @Injectable({
   providedIn: 'root',
 })
@@ -12,7 +20,7 @@ export class SignalRServiceService {
 
   public buildConnection() {
     this.hubConnection = new HubConnectionBuilder()
-      .withUrl('https://localhost:7068/MessageHub')
+      .withUrl(`https://localhost:7068/MessageHub`, connectionOptions)
       .build();
     console.log('mo kassem traying to start signalr');
     this.hubConnection

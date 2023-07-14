@@ -34,12 +34,10 @@ export class MemberMessageComponent implements OnInit {
       content: ele.value,
     });
 
-    // this.message
-    //   .sendMessage(this.route.snapshot.params['id'], ele.value)
-    //   .subscribe((r) => {
-    //     this.messages.push(r);
-
-    //     ele.value = '';
-    //   });
+    this.message
+      .sendMessage(this.route.snapshot.params['id'], ele.value)
+      .subscribe((r) => {
+        ele.value = '';
+      });
   }
 }
