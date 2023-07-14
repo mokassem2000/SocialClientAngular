@@ -16,7 +16,7 @@ export class MemberListComponent implements OnInit {
 
   constructor(private memberService: MemberService) {}
   ngOnInit(): void {
-    this.memberService.getmembers(1, 5).subscribe((pager) => {
+    this.memberService.getmembers(1, 4).subscribe((pager) => {
       this.members = pager.items;
       this.pagination = pager;
     });

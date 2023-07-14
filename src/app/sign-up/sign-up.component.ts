@@ -53,10 +53,10 @@ export class SignUpComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.signUpForm.value);
     this.PostingData().subscribe((x) => {
       console.log(x);
       this.signUpForm.reset();
     });
+    this.signUpForm.reset();
   }
 }
