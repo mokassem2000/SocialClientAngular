@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { IMember } from 'src/app/Interfaces/IMember.interface';
 import { MemberService } from 'src/app/_services/member.service';
-
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-member-card',
   templateUrl: './member-card.component.html',
@@ -9,6 +9,9 @@ import { MemberService } from 'src/app/_services/member.service';
 })
 export class MemberCardComponent implements OnInit {
   isliked: boolean = false;
+  s = {
+    danger: this.isliked,
+  };
   ngOnInit(): void {
     this.getMainPhoto();
   }
@@ -17,22 +20,24 @@ export class MemberCardComponent implements OnInit {
   /**
    *
    */
-  constructor(private memberService: MemberService) {}
+  constructor(
+    private memberService: MemberService,
+    private toastr: ToastrService
+  ) {}
 
   getMainPhoto() {
     let mainUrl = this.member.photos.find((m) => m.isMain == true)?.url;
     if (mainUrl) {
       this.mainPhoto = mainUrl;
     } else {
-      this.mainPhoto =
-        'https://static.vecteezy.com/system/resources/previews/000/439/863/non_2x/vector-users-icon.jpg';
+      this.mainPhoto = '../../../assets/Cute Anime Illustration Boy Avatar.png';
     }
   }
 
   addLike(id: string) {
-    console.log('isliked');
     this.memberService.addLike(id).subscribe(() => {
       console.log('liked');
+      this.toastr.success('you have liked ');
     });
     this.isliked = !this.isliked;
   }

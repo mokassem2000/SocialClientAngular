@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgModule } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import {
   AbstractControl,
   FormControl,
@@ -10,6 +11,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { AccountService } from '../_services/account.service';
+import { state } from '@angular/animations';
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
@@ -30,7 +32,7 @@ export class SignUpComponent implements OnInit {
       return { notIdentical: true };
     }
   };
-  constructor(private account: AccountService) {}
+  constructor(private account: AccountService, private toastr: ToastrService) {}
   ngOnInit(): void {
     this.signUpForm = new FormGroup({
       Name: new FormControl(null, Validators.required),
@@ -53,10 +55,18 @@ export class SignUpComponent implements OnInit {
   }
 
   onSubmit() {
-    this.PostingData().subscribe((x) => {
-      console.log(x);
-      this.signUpForm.reset();
-    });
+    this.PostingData().subscribe(
+      (x) => {
+        console.log(x);
+        this.toastr.success('you have created user successfully');
+        this.signUpForm.reset();
+      },
+      (e) => {
+        this.toastr.error('invalid form');
+        this.signUpForm.reset();
+      }
+    );
     this.signUpForm.reset();
+    console.log(this.signUpForm);
   }
 }

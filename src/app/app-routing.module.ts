@@ -8,19 +8,30 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { UnsavedChangesGuard } from './_guards/unsaved-changes.guard';
 import { ListsComponent } from './Member/lists/lists.component';
 import { MessagesComponent } from './messages/messages.component';
+import { IsauthenticatedGuard } from './_guards/isauthenticated.guard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'signUp', component: SignUpComponent },
-  { path: 'Members', component: MemberListComponent },
-  { path: 'Members/:id', component: MemberDitailComponent },
+  { path: 'signUp', component: SignUpComponent, title: 'SignUp' },
+  {
+    path: 'Members',
+    component: MemberListComponent,
+    canActivate: [IsauthenticatedGuard],
+  },
+  { path: 'Members/:id', component: MemberDitailComponent, title: 'Members' },
 
   {
     path: 'Member/edite',
     component: MemberEditeComponent,
+    title: 'Profile',
     canDeactivate: [UnsavedChangesGuard],
   },
-  { path: 'Likes', component: ListsComponent },
+  {
+    path: 'Likes',
+    component: ListsComponent,
+    title: 'Profile',
+    canActivate: [IsauthenticatedGuard],
+  },
   { path: 'messages/:id', component: MessagesComponent },
 ];
 

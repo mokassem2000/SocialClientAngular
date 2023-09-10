@@ -16,7 +16,10 @@ export class LoadingInterceptor implements HttpInterceptor {
     request: HttpRequest<unknown>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
-    this.busy.busy();
+    console.log(`the value is ${request.url}`);
+    if (!(request.url === 'https://localhost:7068/createMessage')) {
+      this.busy.busy();
+    }
     return next.handle(request).pipe(
       delay(1000),
       finalize(() => {

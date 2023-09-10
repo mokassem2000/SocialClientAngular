@@ -37,6 +37,7 @@ export class SignalRServiceService {
   }
 
   public sendMessage(message: IRealmessage) {
+    console.log('sssending message.....');
     this.hubConnection
       .invoke('NotifyMessage', message)
       .catch((err) => console.log('Error while sending message: ' + err));

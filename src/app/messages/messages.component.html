@@ -47,8 +47,8 @@
                             <strong>{{message.senderUsername}}</strong>
                         </div>
                     </td>
-                    <td>{{message.messageSent | dateAgo}}</td>
-                    <td *ngIf="container ==='inbox'">
+                    <td>{{message.messageSent|date:'short'}}</td>
+                    <td *ngIf="container ==='Outbox'">
                         <button type="button" class="btn btn-danger" (click)="deleteMessage(message.id)">Delete</button>
                     </td>
                 </tr>

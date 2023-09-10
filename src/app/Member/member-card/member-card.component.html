@@ -1,16 +1,23 @@
 <div>
-    <mat-card class="card m-1 " style="background-color: #673ab7; color: white;">
+    <mat-card class="card m-1 " style="background-color:#595959; color: white;">
         <mat-card-content class="text-center d-flex justify-content-center
         "><mat-icon aria-hidden="false" aria-label="Example home icon"
                 fontIcon="person"></mat-icon>{{member.userName}}</mat-card-content>
         <img class="imageZoomEffect" mat-card-image [src]="mainPhoto">
         <ul class="userDitailBtn">
+
             <a [routerLink]='["/Members",member.memberId]'>
-                <li class="rounded "><mat-icon aria-hidden="false" aria-label="Example home icon"
-                        fontIcon="account_circle"></mat-icon></li>
+                <li class="rounded "><mat-icon aria-hidden="false" fontIcon="account_circle"></mat-icon></li>
             </a>
-            <li class="rounded" [classList]="{danger:isliked}" (click)="addLike(member.memberId)"><mat-icon
-                    aria-hidden="false" aria-label="Example home icon" fontIcon="favorite "></mat-icon></li>
+
+            <a class="rounded ">
+
+                <li class="rounded" (click)="addLike(member.memberId)">
+                    <mat-icon [style.color]="isliked?'red':'white'" aria-hidden="false" aria-label="Example home icon"
+                        fontIcon="favorite "></mat-icon>
+                </li>
+            </a>
+
             <a [routerLink]='["/messages",member.memberId]'>
                 <li class="rounded "><mat-icon aria-hidden="false" aria-label="Example home icon"
                         fontIcon="chat"></mat-icon>

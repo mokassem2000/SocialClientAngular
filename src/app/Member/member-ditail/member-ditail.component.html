@@ -1,8 +1,9 @@
 <ng-container *ngIf="User$|async as user">
     <div class="row ">
-        <div class="col-3 border p-3">
+        <div class="col-lg-3   border p-3">
             <div class="w-100 row mx-auto mb-3 ">
-                <img class="col-12 border" [src]="mainPhoto">
+                <img class="col-12 border"
+                    [src]="mainPhoto?mainPhoto:'../../../assets/Purple Pink Gradient Man 3D Avatar.png'">
             </div>
             <div class="my-2">
                 <div>UserName</div>
@@ -14,14 +15,16 @@
             </div>
             <div class="my-2">
                 <div>Last Active</div>
-                <small>5 min age</small>
+                <small>{{user.lastActive |date:'short'}}</small>
             </div>
             <div class="my-2">
                 <div>Member since</div>
-                <small>{{user.created}}</small>
+                <small>{{user.created|date:'short' }}</small>
             </div>
             <div class="row">
-                <button class="col-6  p-2 text-center" mat-button color="primary">Like</button>
+                <button class="col-6  p-2 text-center" mat-button color="primary" (click)="onLike()">Like</button>
+
+
                 <button class=" col-6 p-2 text-center" (click)="selectMessageTab()" mat-button color="Basic"
                     routerLink="/messages">message</button>
             </div>
@@ -29,7 +32,7 @@
 
 
         </div>
-        <div class="col-8 ms-5 ">
+        <div class="col-lg-8 ms-5  mt-5 border">
             <mat-tab-group #tabsParent (selectedTabChange)="onTabActivated($event)">
                 <mat-tab label="Description" class="p-3">
                     <div class="pt-3">

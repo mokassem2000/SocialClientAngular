@@ -1,30 +1,24 @@
-/* 
-.imageZoomEffect:hover{
-    transform: scale(1.2,1.2);
-    overflow: hidden;
-    transition-duration: 500ms;
-    transition-timing-function: ease-out;
-} */
-.card{
-    position: relative;
+.card {
+  position: relative;
 }
-.userDitailBtn{
-    width: 100%;
-list-style: none;
-display: flex;
-justify-content: space-evenly;
-position: absolute;
-top: 50%;
-text-align: center;
-}
-.userDitailBtn li{
-    background-color: rgb(84, 18, 104);
-    padding:5px;
-    color: white;
-    opacity: 0;
 
-
+.userDitailBtn {
+  width: 100%;
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+  position: absolute;
+  top: 50%;
+  text-align: center;
 }
-.card:hover .userDitailBtn li{
-    opacity: 1;
+
+.userDitailBtn li {
+  background-color: #6c36cc;
+  padding: 5px;
+  color: white;
+  opacity: 0;
+}
+
+.card:hover .userDitailBtn li {
+  opacity: 1;
 }

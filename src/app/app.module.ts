@@ -4,6 +4,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
+import { ToastrModule } from 'ngx-toastr';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './Shared/material.module';
@@ -18,13 +19,13 @@ import { MemberDitailComponent } from './Member/member-ditail/member-ditail.comp
 import { MemberEditeComponent } from './Member/member-edite/member-edite.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { LoadingInterceptor } from './_Interceptor/loading.interceptor';
+import { NgPipesModule } from 'ngx-pipes';
 import { UploaderModule } from 'angular-uploader';
 import { NgxFileDropModule } from 'ngx-file-drop';
 import { PhotoUploadeComponent } from './photo-uploade/photo-uploade.component';
 import { ListsComponent } from './Member/lists/lists.component';
 import { MessagesComponent } from './messages/messages.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { DateAgoPipe } from './pipes/date-ago.pipe';
 import { MemberMessageComponent } from './member-message/member-message.component';
 
 @NgModule({
@@ -40,10 +41,10 @@ import { MemberMessageComponent } from './member-message/member-message.componen
     PhotoUploadeComponent,
     ListsComponent,
     MessagesComponent,
-    DateAgoPipe,
     MemberMessageComponent,
   ],
   imports: [
+    NgPipesModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
@@ -56,6 +57,10 @@ import { MemberMessageComponent } from './member-message/member-message.componen
     UploaderModule,
     NgxSpinnerModule.forRoot({ type: 'line-scale-party' }),
     NgxFileDropModule,
+    ToastrModule.forRoot({
+      timeOut: 10000,
+      positionClass: 'toast-bottom-right',
+    }),
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [

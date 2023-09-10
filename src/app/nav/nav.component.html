@@ -1,7 +1,7 @@
-<div class="container ">
+<div class="container " style="color: white;">
     <nav class="navbar navbar-expand-lg bg-body-tertiary ">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">SocialApp</a>
+            <a class="navbar-brand" href="#">ChatApp</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -10,12 +10,13 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" routerLink="Likes"
+                        <a class="nav-link" aria-current="page" routerLink="Likes" style="color:white;"
                             [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active">Likes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " aria-current="page" routerLinkActive="active"
-                            routerLink="/Members">Lists</a>
+                        <a class="nav-link " aria-current="page" routerLinkActive="active" style="color:white;"
+                            routerLink="/Members">Members
+                        </a>
                     </li>
 
 
@@ -28,10 +29,9 @@
                             <img style="width: 40px;" class="border  border-dark" [src]="authModel.photoUrl ">
                         </ng-container>
                         <ng-template #elseBlock>
-                            <img style="width: 50px;"
-                                src="https://img.freepik.com/free-photo/beautiful-sunflower-outdoors-still-life_23-2150152821.jpg?w=996&t=st=1683654936~exp=1683655536~hmac=ec85402a3af2b73a1a5f840a31d317dfb17803ea235f460c748c7443f72a069d ">
+                            <img style="width: 50px;" src="../../../assets/Cute Anime Illustration Boy Avatar.png">
                         </ng-template>
-                        hi,{{authModel.name}}
+                        <span style="color: white; padding: 0 5px;">hi,{{authModel.name}}</span>
                     </button>
                     <mat-menu #menu="matMenu">
                         <a routerLink="/Member/edite"><button mat-menu-item>Profile</button></a>

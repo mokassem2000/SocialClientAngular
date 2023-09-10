@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { IMember } from 'src/app/Interfaces/IMember.interface';
 import { pager } from 'src/app/Interfaces/Pagination';
+import { AccountService } from 'src/app/_services/account.service';
 
 import { MemberService } from 'src/app/_services/member.service';
 
@@ -13,13 +14,30 @@ import { MemberService } from 'src/app/_services/member.service';
 export class MemberListComponent implements OnInit {
   members: IMember[];
   pagination: pager;
+  id: string;
 
-  constructor(private memberService: MemberService) {}
+  constructor(
+    private memberService: MemberService,
+    private auth: AccountService
+  ) {}
   ngOnInit(): void {
-    this.memberService.getmembers(1, 4).subscribe((pager) => {
-      this.members = pager.items;
-      this.pagination = pager;
-    });
+    this.auth.AuthBufferSub$.subscribe((m) => (this.id = m.id));
+    this.memberService
+      .getmembers(1, 4)
+      .pipe(
+        map((m) => {
+          let l = m.items.filter(
+            (m) => m.memberId !== JSON.parse(localStorage.getItem('auth')).id
+          );
+          m.items = l;
+
+          return m;
+        })
+      )
+      .subscribe((pager) => {
+        this.members = pager.items;
+        this.pagination = pager;
+      });
   }
   updatePagenation(event) {
     this.memberService
